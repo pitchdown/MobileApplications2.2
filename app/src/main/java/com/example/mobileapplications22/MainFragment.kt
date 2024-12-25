@@ -12,39 +12,39 @@ import com.example.mobileapplications22.profile.ProfileFragment
 
 class MainFragment : Fragment() {
 
-    private lateinit var binding : FragmentMainBinding
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(inflater,container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadFragment(HomeFragment.newInstance())
+        loadFragment(HomeFragment.newInstance("Home Page"))
         listeners()
     }
 
-    private fun listeners() = with(binding){
+    private fun listeners() = with(binding) {
         bottomNavMenu.setOnItemSelectedListener {
-            when(it.itemId){
+            when (it.itemId) {
                 R.id.home -> {
-                    loadFragment(HomeFragment.newInstance())
+                    loadFragment(HomeFragment.newInstance("Home Page"))
                     true
                 }
                 R.id.search -> {
-                    Toast.makeText(requireContext(), "coming soon!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Coming soon!", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.addPost -> {
-                    Toast.makeText(requireContext(), "coming soon!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Coming soon!", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.reels -> {
-                    Toast.makeText(requireContext(), "coming soon!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Coming soon!", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.profile -> {
@@ -52,16 +52,16 @@ class MainFragment : Fragment() {
                     true
                 }
                 else -> {
-                    loadFragment(HomeFragment.newInstance())
+                    loadFragment(HomeFragment.newInstance("Home Page"))
                     true
                 }
             }
         }
     }
 
-    private fun loadFragment(f: Fragment){
+    private fun loadFragment(f: Fragment) {
         parentFragmentManager.beginTransaction()
-            .replace(R.id.container,f)
+            .replace(R.id.container, f)
             .commit()
     }
 
@@ -70,3 +70,4 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 }
+
